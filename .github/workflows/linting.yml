@@ -2,9 +2,11 @@ name: linting
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches:
+      - master
   pull_request:
-    branches: [ $default-branch ]
+    branches:
+      - master
 jobs:
   lint:
     runs-on: ubuntu-latest
