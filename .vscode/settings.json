@@ -1,0 +1,19 @@
+{
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.formatAndfix",
+      "sequence": [
+        "tsImportSorter.command.sortImports",
+        "editor.action.formatDocument",
+        "workbench.action.files.save",
+      ]
+    }
+  ],
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "tsImportSorter.configuration.autoFormat": "off",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "multiCommand.formatAndfix": true,
+  }
+}

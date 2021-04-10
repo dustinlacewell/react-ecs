@@ -1,0 +1,108 @@
+{
+  "name": "@ldlework/react-ecs",
+  "author": "Dustin Lacewell",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/react-ecs.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "yarn lint && tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "npx eslint --fix --ext .ts,.tsx ./src/",
+    "prepare": "yarn lint",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "copy": "copyfiles package.json README.md dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\""
+  },
+  "peerDependencies": {
+    "@react-three/drei": "^4.0.3",
+    "@react-three/fiber": "^6.0.6",
+    "cannon-es": "^0.17.0",
+    "react": ">=16",
+    "react-dom": ">=16",
+    "three": "^0.127.0",
+    "three-stdlib": "1.1.4"
+  },
+  "dependencies": {
+    "mobx": "^6.1.8",
+    "mobx-react": "^7.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tick-knock": "^3.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/react-ecs.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-ecs.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@react-three/drei": "^4.0.3",
+    "@react-three/fiber": "^6.0.6",
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "@storybook/addon-essentials": "^6.2.5",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-links": "^6.2.5",
+    "@storybook/addons": "^6.2.5",
+    "@storybook/react": "^6.2.5",
+    "@types/cannon": "^0.1.5",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/three": "^0.127.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "babel-loader": "^8.2.2",
+    "cannon-es": "^0.17.0",
+    "copyfiles": "^2.4.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^6.0.0",
+    "json": "^10.0.0",
+    "mobx": "^6.1.8",
+    "mobx-react": "^7.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "size-limit": "^4.10.2",
+    "three": "^0.127.0",
+    "three-stdlib": "1.1.4",
+    "tick-knock": "^3.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
+  },
+  "resolutions": {
+    "**/@typescript-eslint/eslint-plugin": "^4.11.1",
+    "**/@typescript-eslint/parser": "^4.11.1",
+    "**/jest": "^26.6.3",
+    "**/ts-jest": "^26.4.4",
+    "**/typescript": "^4.1.3"
+  }
+}

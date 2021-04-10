@@ -1,0 +1,9 @@
+{
+    "extends": "../tsconfig",
+    "exclude": [],
+    "include": [
+        "./stories/**/*",
+        "../src/**/*"
+    ],
+    "jsx": "react"
+}
