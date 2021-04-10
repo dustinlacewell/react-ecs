@@ -1,0 +1,18 @@
+name: linting
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: yarn
+    - name: Lint source
+      run: eslint src --ext .ts,.tsx
+    - name: Lint stories
+      run: eslint .storybook/stories --ext .ts,.tsx
