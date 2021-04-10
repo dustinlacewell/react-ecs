@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-
 import { observer } from 'mobx-react';
+import React, { FC } from 'react';
 
 import {
   Entity,
@@ -9,11 +8,11 @@ import {
   useECS,
   useFacet,
   useQuery,
-  useSystem
+  useSystem,
 } from '../../../src';
 
 export default {
-    title: 'Core'
+    title: 'Core',
 };
 
 class Counter extends Facet<Counter> {

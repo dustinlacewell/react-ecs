@@ -1,11 +1,9 @@
-import * as React from 'react';
-import { FC } from 'react';
-
-import * as THREE from 'three';
-import { Vector3 } from 'three';
-
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
+import * as React from 'react';
+import { FC } from 'react';
+import * as THREE from 'three';
+import { Vector3 } from 'three';
 
 export type ThreeSetupProps = {
   cameraFov?: number

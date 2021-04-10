@@ -6,11 +6,11 @@ import {
   useAnimationFrame,
   useECS,
   useQuery,
-  useSystem
+  useSystem,
 } from '../../../src/';
 
 export default {
-    title: 'Core'
+    title: 'Core',
 };
 
 class Counter extends Facet<Counter> {

@@ -13,6 +13,6 @@ jobs:
     - name: Install modules
       run: yarn
     - name: Lint source
-      run: eslint src --ext .ts,.tsx
+      run: yarn eslint src --ext .ts,.tsx
     - name: Lint stories
-      run: eslint .storybook/stories --ext .ts,.tsx
+      run: yarn eslint .storybook/stories --ext .ts,.tsx

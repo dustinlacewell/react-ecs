@@ -1,17 +1,16 @@
-import React, { FC } from 'react';
-
 import { Box } from '@react-three/drei';
+import React, { FC } from 'react';
 
 import {
   Entity,
   useECS,
-  View
+  View,
 } from '../../../src';
 import { ThreeStory } from './ThreeSetup';
 
 export default {
     title: 'Three/Cube',
-    decorators: [ThreeStory]
+    decorators: [ThreeStory],
 };
 
 const Cube = () => {

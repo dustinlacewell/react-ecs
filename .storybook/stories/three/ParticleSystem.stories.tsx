@@ -1,17 +1,15 @@
+import { Box } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import React, {
   FC,
-  useContext
+  useContext,
 } from 'react';
-
 import {
   Color,
   Mesh,
   MeshBasicMaterial,
-  Vector3
+  Vector3,
 } from 'three';
-
-import { Box } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 
 import {
   Emitter,
@@ -20,7 +18,7 @@ import {
   useECS,
   useQuery,
   useSystem,
-  View
+  View,
 } from '../../../src';
 import { ECSContext } from '../../../src/components/ECS';
 import { Tuple3 } from '../../../src/utils';
@@ -28,7 +26,7 @@ import { ThreeStory } from './ThreeSetup';
 
 export default {
     title: 'Three/ParticleSystem',
-    decorators: [ThreeStory]
+    decorators: [ThreeStory],
 };
 
 class Velocity extends Facet<Velocity> {
@@ -47,10 +45,10 @@ const RandomColorSystem: FC = () => {
                 const mesh = view.ref.current as Mesh;
                 const material = mesh.material as MeshBasicMaterial;
                 material.color.set(
-                    new Color(Math.random(), Math.random(), Math.random())
+                    new Color(Math.random(), Math.random(), Math.random()),
                 );
             }
-        }
+        },
     });
 
     return null;
@@ -64,7 +62,7 @@ const VelocitySystem: FC = props => {
             const transform = view.ref.current;
             if (transform) {
                 transform.position.add(
-                    motion.velocity.clone().multiplyScalar(dt)
+                    motion.velocity.clone().multiplyScalar(dt),
                 );
             }
         });
@@ -79,7 +77,7 @@ const GravitySystem: FC<{ gravity: Tuple3 }> = props => {
             const transform = view.ref.current;
             if (transform) {
                 const scaledGravity = new Vector3(
-                    ...props.gravity
+                    ...props.gravity,
                 ).multiplyScalar(dt);
                 const adjustedVelocity = motion.velocity
                     .clone()

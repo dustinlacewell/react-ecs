@@ -1,9 +1,7 @@
-import React, { FC } from 'react';
-
-import { Vector3 } from 'three';
-
 import { Box } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
+import React, { FC } from 'react';
+import { Vector3 } from 'three';
 
 import {
   Entity,
@@ -11,13 +9,13 @@ import {
   useECS,
   useQuery,
   useSystem,
-  View
+  View,
 } from '../../../src';
 import { ThreeStory } from './ThreeSetup';
 
 export default {
     title: 'Three/SpinningCube',
-    decorators: [ThreeStory]
+    decorators: [ThreeStory],
 };
 
 class Spinning extends Facet<Spinning> {

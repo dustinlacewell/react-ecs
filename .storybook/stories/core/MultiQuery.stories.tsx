@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-
 import { observer } from 'mobx-react';
+import React, { FC } from 'react';
 
 import {
   Entity,
@@ -9,7 +8,7 @@ import {
   useECS,
   useFacet,
   useQuery,
-  useSystem
+  useSystem,
 } from '../../../src';
 
 export default {
