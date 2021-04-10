@@ -1,7 +1,7 @@
 {
   "name": "@ldlework/react-ecs",
   "author": "Dustin Lacewell",
-  "version": "0.0.1-a.1",
+  "version": "0.0.1-a.2",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/react-ecs.esm.js",
