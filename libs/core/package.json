@@ -1,0 +1,15 @@
+{
+    "name": "@react-ecs/core",
+    "version": "0.0.1",
+    "peerDependencies": {
+        "mobx": "^6.2.0",
+        "mobx-react": "^7.1.0"
+    },
+    "devDependencies": {
+        "mobx": "^6.2.0",
+        "mobx-react": "^7.1.0"
+    },
+    "dependencies": {
+        "tick-knock": "^3.0.1"
+    }
+}

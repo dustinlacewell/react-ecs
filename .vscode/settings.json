@@ -1,0 +1,40 @@
+{
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.formatAndfix",
+            "sequence": [
+                "tsImportSorter.command.sortImports",
+                "editor.action.formatDocument",
+            ]
+        }
+    ],
+    "tsImportSorter.configuration.autoFormat": "off",
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "editor.formatOnSave": true,
+    "eslint.validate": [
+        "json",
+        "jsonc"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.codeActionsOnSave": {
+        "multiCommand.formatAndfix": true,
+    },
+    "prettier.documentSelectors": [
+        "*.json"
+    ]
+}

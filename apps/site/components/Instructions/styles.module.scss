@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "LatoLightItalic";
+    src: url(../../public/fonts/lato/Lato-LightItalic.ttf) format("truetype");
+}
+
+.outer {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    width: 35em;
+    height: 4em;
+    top: calc(50% - 2em);
+    left: calc(50% - 17.5em);
+    color: black;
+    background: white;
+
+    .inner {
+        flex: 1;
+        padding: .3em;
+        padding-right: 0;
+        flex-direction: column;
+        justify-content: center;
+        font-family: "LatoLightItalic";
+        font-size: 2.2em;
+    }
+
+    button {
+        width: 4em;
+        font-size: 2em;
+        border: 0;
+        border-left: 1 px solid black;
+
+        &:hover {
+            background-color: aquamarine;
+        }
+    }
+}
+
+

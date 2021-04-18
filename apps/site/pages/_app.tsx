@@ -1,26 +1,32 @@
-import React from 'react';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { ReactComponent as NxLogo } from '../public/nx-logo-white.svg';
-import './styles.css';
+import "@fortawesome/fontawesome-free";
+import "./site.css";
+
+import { AppProps } from "next/app";
+import Head from "next/head";
+import React from "react";
+import GithubCorner from "react-github-corner";
+
+import styles from "./app.module.scss";
 
 function CustomApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <title>Welcome to site!</title>
-      </Head>
-      <div className="app">
-        <header className="flex">
-          <NxLogo width="75" height="50" />
-          <h1>Welcome to site!</h1>
-        </header>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <title>react-ecs</title>
+            </Head>
+            <div className={styles.root}>
+                <main>
+                    <Component {...pageProps} />
+                </main>
+                <GithubCorner
+                    className={styles.corner}
+                    octoColor="black"
+                    bannerColor="white"
+                    href="https://github.com/dustinlacewell/react-ecs"
+                />
+            </div>
+        </>
+    );
 }
 
 export default CustomApp;

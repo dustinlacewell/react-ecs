@@ -1,35 +1,61 @@
 {
-  "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {
-        "@nrwl/nx/enforce-module-boundaries": [
-          "error",
-          {
-            "enforceBuildableLibDependency": true,
-            "allow": [],
-            "depConstraints": [
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
-    }
-  ]
+    "root": true,
+    "ignorePatterns": ["**/*"],
+    "plugins": [
+        "@nrwl/nx",
+        "@typescript-eslint",
+        "simple-import-sort",
+        "json-format"
+    ],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+            "rules": {
+                "@nrwl/nx/enforce-module-boundaries": [
+                    "error",
+                    {
+                        "enforceBuildableLibDependency": true,
+                        "allow": [],
+                        "depConstraints": [
+                            {
+                                "sourceTag": "*",
+                                "onlyDependOnLibsWithTags": ["*"]
+                            }
+                        ]
+                    }
+                ],
+                "indent": ["error", 4],
+                "simple-import-sort/imports": "error",
+                "simple-import-sort/exports": "error",
+                "comma-dangle": [
+                    "error",
+                    {
+                        "arrays": "always-multiline",
+                        "objects": "always-multiline",
+                        "imports": "always-multiline",
+                        "exports": "always-multiline",
+                        "functions": "always-multiline"
+                    }
+                ]
+            }
+        },
+        {
+            "files": ["*.ts", "*.tsx"],
+            "extends": ["plugin:@nrwl/nx/typescript"],
+            "rules": {
+                "@typescript-eslint/explicit-module-boundary-types": "off",
+                "@typescript-eslint/no-non-null-assertion": "off"
+            }
+        },
+        {
+            "files": ["*.js", "*.jsx"],
+            "extends": ["plugin:@nrwl/nx/javascript"],
+            "rules": {}
+        },
+        {
+            "files": ["*.json"],
+            "extends": ["plugin:json/recommended-with-comments"],
+            "rules": {}
+        }
+    ]
 }
