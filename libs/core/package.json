@@ -1,6 +1,6 @@
 {
     "name": "@react-ecs/core",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "peerDependencies": {
         "mobx": "^6.2.0",
         "mobx-react": "^7.1.0"
