@@ -28,11 +28,13 @@ export function useQuery(predicate: QueryPredicate, options?: UseQueryOptions) {
         if (queryRef.current === undefined) {
             const query = new Query(predicate);
             if (options?.added) {
-                query.onEntityAdded.connect(update);
+                query.onEntityAdded.connect(options.added)
             }
             if (options?.removed) {
-                query.onEntityRemoved.connect(update);
+                query.onEntityRemoved.connect(options.removed)
             }
+            query.onEntityAdded.connect(update);
+            query.onEntityRemoved.connect(update);
             engine.addQuery(query);
             queryRef.current = query;
             update();
