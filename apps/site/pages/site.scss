@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: black;
+}
+
+body,
+header,
+main,
+section {
+    display: flex;
+    flex: 1;
+    background-color: transparent;
+}
+
+.three-root {
+    position: absolute !important;
+    z-index: -99 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+canvas#main {
+    position: fixed !important;
+    z-index: -99 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+div#logo {
+    font-family: 'Lato';
+    font-size: 5em;
+    font-weight: bolder;
+    margin-left: 1.5em;
+    margin-top: 0.1em;
+    background-color: transparent;
+
+    @media (max-width: $xs) {
+        font-size: 3em !important;
+        margin-top: 0.5em;
+        margin-left: 2.3em !important;
+    }
+
+    // @media (max-width: 540px) {
+    //     font-size: 4em;
+    //     margin-left: 1.8em;
+    //     margin-top: 0.2em;
+    // }
+}
+
+div#leva {
+    position: absolute;
+    left: 2.3em;
+    width: calc(100vw - (2.3em * 2));
+    top: 6em;
+    z-index: 100;
+
+    @media (min-width: $sm) {
+        left: 120px;
+        width: 21em;
+    }
+
+    & > div {
+        overflow: hidden;
+        border-radius: 10px;
+
+        & > div:last-child {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            max-height: calc(100vh - 16em);
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                width: 10px;
+                color: white;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: var(--leva-colors-elevation3);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--leva-colors-accent2);
+                border-radius: 20px; /* roundness of the scroll thumb */
+            }
+        }
+    }
+}

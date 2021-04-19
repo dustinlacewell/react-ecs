@@ -13,8 +13,9 @@ import {
 } from "three";
 
 import { Spin } from "../../facets/Spin";
+import { getAssetPath } from "../../utils";
 
-const LOGO_PATH = '/models/react-ecs-logo.gltf';
+const LOGO_PATH = getAssetPath('models/react-ecs-logo.gltf');
 
 // eslint-disable-next-line react/display-name
 export const Jack = forwardRef((props: GroupProps, ref: ForwardedRef<ReactNode>) => {

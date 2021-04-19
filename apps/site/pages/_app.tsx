@@ -1,5 +1,5 @@
 import "@fortawesome/fontawesome-free";
-import "./site.css";
+import "./site.scss";
 
 import { AppProps } from "next/app";
 import Head from "next/head";

@@ -17,7 +17,9 @@
         "paths": {
             "@react-ecs/core": ["libs/core/src/index.ts"],
             "@react-ecs/three": ["libs/three/src/index.ts"],
-            "@react-ecs/boids": ["libs/boids/src/index.ts"]
+            "@react-ecs/boids": ["libs/boids/src/index.ts"],
+
+            "@site-styles/*": ["apps/site/styles/*"]
         }
     },
     "exclude": ["node_modules", "tmp"]

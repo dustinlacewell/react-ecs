@@ -1,30 +1,30 @@
-import { rad } from "@react-ecs/core";
+import { rad } from '@react-ecs/core';
 import {
     OrthographicCamera,
     useCamera,
-    useGLTF,
-} from "@react-three/drei";
+    useGLTF
+} from '@react-three/drei';
 import {
     createPortal,
     useFrame,
-    useThree,
-} from "@react-three/fiber";
+    useThree
+} from '@react-three/fiber';
 import React, {
-    MutableRefObject,
     useMemo,
     useRef,
-    useState,
-} from "react";
+    useState
+} from 'react';
 import {
     Group,
     Matrix4,
     Mesh,
-    Scene,
-} from "three";
+    Scene
+} from 'three';
 
-import { Jack } from "../Jack";
+import { getAssetPath } from '../../utils';
+import { Jack } from '../Jack';
 
-const LOGO_PATH = '/models/react-ecs-logo.gltf';
+const LOGO_PATH = getAssetPath('models/react-ecs-logo.gltf');
 
 export function Viewcube() {
     const { nodes } = useGLTF(LOGO_PATH);

@@ -1,13 +1,15 @@
-import { BoidSim } from "@react-ecs/boids";
+import { BoidSim } from '@react-ecs/boids';
 import {
     OrbitControls,
-    useGLTF,
-} from "@react-three/drei";
-import { useControls } from "leva";
-import React, { FC } from "react";
-import { Mesh } from "three";
+    useGLTF
+} from '@react-three/drei';
+import { useControls } from 'leva';
+import React, { FC } from 'react';
+import { Mesh } from 'three';
 
-const LOGO_PATH = '/models/plane1.gltf';
+import { getAssetPath } from '../lib/utils';
+
+const LOGO_PATH = getAssetPath('models/plane1.gltf');
 
 
 export const BoidScene: FC = (props) => {

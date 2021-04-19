@@ -32,7 +32,6 @@ export function Index() {
             </div>
             <Instructions />
             <Canvas id={'main'} className={"three-root"}>
-                <Icosahedron />
                 <ECS.Provider>
                     <SpinSystem />
                     <Suspense fallback={<Torus />}>
