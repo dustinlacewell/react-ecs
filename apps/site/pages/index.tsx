@@ -1,19 +1,16 @@
 import {
     useAnimationFrame,
-    useECS,
-} from "@react-ecs/core";
-import {
-    Icosahedron,
-    Torus,
-} from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Leva } from "leva";
-import React, { Suspense } from "react";
+    useECS
+} from '@react-ecs/core';
+import { Torus } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { Leva } from 'leva';
+import React, { Suspense } from 'react';
 
-import { Instructions } from "../components/Instructions";
-import { Viewcube } from "../lib/entities/Logo";
-import { SpinSystem } from "../lib/systems/SpinSystem";
-import { BoidScene } from "../scenes/BoidScene";
+import { Instructions } from '../components/Instructions';
+import { Viewcube } from '../lib/entities/Logo';
+import { SpinSystem } from '../lib/systems/SpinSystem';
+import { BoidScene } from '../scenes/BoidScene';
 
 export function Index() {
     const ECS = useECS();
