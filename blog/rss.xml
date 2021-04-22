@@ -4,9 +4,16 @@
         <title>react-ecs Blog</title>
         <link>https://react-ecs.ldlework.com/blog</link>
         <description>react-ecs Blog</description>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 22 Apr 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Coming Soon]]></title>
+            <link>https://react-ecs.ldlework.com/blog/coming-soon</link>
+            <guid>coming-soon</guid>
+            <pubDate>Thu, 22 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Coming soon!]]></description>
+        </item>
         <item>
             <title><![CDATA[Hola]]></title>
             <link>https://react-ecs.ldlework.com/blog/hola</link>
