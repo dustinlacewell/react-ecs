@@ -1,4 +1,5 @@
 ---
+slug: /three/
 title: '@react-ecs/three overview'
 sidebar_label: Overview
 sidebar_position: 0

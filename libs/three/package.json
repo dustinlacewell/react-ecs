@@ -1,10 +1,20 @@
 {
     "name": "@react-ecs/three",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repository": {
         "type": "git",
         "url": "https://github.com/dustinlacewell/react-ecs"
     },
+    "keywords": [
+        "react-ecs",
+        "ecs",
+        "react",
+        "r3f",
+        "react-three",
+        "react-three-fiber",
+        "babylon",
+        "babylonjs"
+    ],
     "peerDependencies": {
         "@react-three/drei": "^4.1.8",
         "@react-three/fiber": "^6.0.14",

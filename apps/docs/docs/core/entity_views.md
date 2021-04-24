@@ -53,6 +53,6 @@ In this example, we create a [System](/api/core/types/system) to the entity's DO
 
 <Warning label="Tip">
 
-This technique can be used to integrate `@react-ecs/core` with basically any alternative renderer for React. Check out [@react-ecs/three](/docs/three/overview) for an example of this technique applied to [ThreeJS](https://threejs.org/)
+This technique can be used to integrate `@react-ecs/core` with basically any alternative renderer for React. Check out [@react-ecs/three](/docs/three) for an example of this technique applied to [ThreeJS](https://threejs.org/)
 
 </Warning>
