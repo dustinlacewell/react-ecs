@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[44],{105:function(e){e.exports=JSON.parse('{"pluginId":"api","version":"current","label":"Next","isLast":true,"docsSidebars":{"sidebar":[{"collapsed":true,"type":"category","label":"@react-ecs/core","items":[]},{"collapsed":true,"type":"category","label":"@react-ecs/three","items":[]}]},"permalinkToSidebar":{}}')}}]);
