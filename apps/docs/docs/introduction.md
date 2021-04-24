@@ -1,0 +1,202 @@
+---
+slug: /
+sidebar_position: 0
+sidebar_label: Introduction
+title: React ECS Documentation
+---
+
+import { Leva } from 'leva';
+
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import { Suspense } from 'react';
+
+import { BoidExample } from '../src/scenes/BoidExample'
+import { DOMParticles } from '../src/scenes/DOMParticles'
+import { Example } from '../src/components/Example';
+
+`react-ecs` is a declarative "Entity Component System" for React.
+
+<Leva hidden />
+
+<Example hideControls style={{backgroundColor: 'black', height: '250px' }}>
+<BoidExample />
+</Example>
+
+<div style={{float: "right"}}>These boids are driven by react-ecs! Try dragging and zooming!</div>
+
+## What's that?
+
+<img style={{float: "right", maxWidth: "400px", marginLeft: "10px"}} src="https://i.imgur.com/nTfGWyF.png" />
+
+An **ECS**, or _Entity Component System_ is a design pattern popular in game development. It eschews rich objects for simple **Entities** that compose data-only Components, or **Facets** as `react-ecs` calls them (to avoid confusion with React Components).
+
+Logic is then handled by small update functions called **Systems** that operate upon the facets related to it.
+
+In the example to the right, a common scenario is illustrated. There are a number of entities, comprised merely as a collection of simple data facets. A `Velocity` or `Position` component may hold a simple vector. Whereas a `Graphics` component might hold the URL of a sprite image.
+
+Two systems, `PhysicsSystem` and `GraphicsSystem` are responsible for all the behavior and logic:
+
+-   The `PhysicsSystem` looks at all the entities with **both** `Velocity` and `Position` facets, using the former to update the latter.
+-   The `GraphicsSystem` looks at all the entities with **both** `Position` and `Graphics` facets, using the former to draw the latter.
+
+The systems ignore the entities that don't have the facets they're interested in.
+
+## Composition over Inheritance
+
+ECS takes "composition over inheritance" to its logical conclusion.
+
+Entities are nothing more than their facets. They don't have their own data and they don't have any code.
+
+There's no need to try to find the best inheritance tree to represent your problem domain.
+
+Just slap some useful facets onto some entities and write some systems to process them. This also means entity capabilities can dynamically change at runtime.
+
+It's a robust, easy to implement pattern that can enable a fun creativity.
+
+## Declarative ECS with React
+
+The idea behind `react-ecs` is to allow you to _describe_ the parts of your ECS in standard React fashion:
+
+First, define some useful Facets.
+
+```tsx
+class Mass extends Facet<Mass> {}
+
+class Lifetime extends Facet<Lifetime> {
+    timeleft? = 1;
+}
+
+class Position extends Facet<Position> {
+    location? = new Vector2(0, 0);
+}
+
+class Velocity extends Facet<Velocity> {
+    amount? = new Vector2(0, 0);
+}
+```
+
+Let's add a system to remove entities when their `Lifetime` has expired:
+
+```tsx
+const LifetimeSystem = () => {
+    // get reference to ECS engine
+    const engine = useEngine();
+    // create a query for entities with the Lifetime face
+    const query = useQuery((e) => e.has(Lifetime));
+
+    // create a system that runs every tick
+    return useSystem((dt: number) => {
+        // use the query to loop over entities with the Lifetime facet
+        query.loop([Lifetime], (e, [lifetime]) => {
+            // subtract the current frame time
+            lifetime.timeleft -= dt;
+
+            // remove entity from engine if it expires
+            if (lifetime.timeleft <= 0) {
+                engine.removeEntity(e);
+            }
+        });
+    });
+};
+```
+
+Let's add a couple of other systems for moving entities around:
+
+```tsx
+const PhysicsSystem = () => {
+    const query = useQuery((e) => e.hasAll(Position, Velocity));
+
+    return useSystem((dt) => {
+        query.loop([Position, Velocity], (e, [pos, vel]) => {
+            pos.location = pos.location.clone().add(vel.amount);
+        });
+    });
+};
+
+const GravitySystem = ({ vector }) => {
+    const query = useQuery((e) => e.hasAll(Mass, Velocity));
+
+    return useSystem((dt) => {
+        query.loop([Velocity], (e, [vel]) => {
+            vel.amount = vel.amount
+                .clone()
+                .add(vector.clone().multiplyScalar(dt));
+        });
+    });
+};
+```
+
+Finally, let's write a system to sync an entity's `Position` facet with its standard `DOMView` facet:
+
+```tsx
+const DOMViewSystem = () => {
+    const query = useQuery((e) => e.hasAll(DOMView, Position));
+
+    return useSystem((dt) => {
+        query.loop([DOMView, Position], (e, [view, pos]) => {
+            // sync DOM element's style with entity's Position
+            view.element.style.left = `${pos.location.x}px`;
+            view.element.style.top = `${pos.location.y}px`;
+        });
+    });
+};
+```
+
+Now we can put it all together:
+
+```tsx
+export const DOMParticles = () => {
+    // create the ECS
+    const ECS = useECS();
+    // update the ECS every frame
+    useAnimationFrame(ECS.update);
+
+    // some helper functions for randomizing things
+    const rnd = (s: number) => Math.random() * s - s * 0.5;
+    const randomVector = (s: number) =>
+        new Vector2(rnd(s), rnd(s));
+
+
+    return (
+        <ECS.Provider> {/* context provider for ECS things */}
+            {/* include all the systems */}
+            <LifetimeSystem />
+            <PhysicsSystem />
+            <GravitySystem vector={new Vector2(0, 10)} />
+            <DOMViewSystem />
+
+            {/* emit entities with a delay using built-in <Emitter /> */}
+            <Emitter emissionDelay={0.025}>
+                {() => {
+                    // create random position
+                    const pos = randomVector(50).add(new Vector2(250, 100));
+                    return (
+                        {/* <Entity> contains all its facets */}
+                        <Entity>
+                            <Mass />
+                            <Lifetime timeleft={3} />
+                            <Position location={pos} />
+                            <Velocity amount={randomVector(10)} />
+                            <DOMView> {/* DOMView's child lets us declare how the entity looks */}
+                                <img
+                                    style={{
+                                        position: 'absolute',
+                                        left: pos.x,
+                                        top: pos.y,
+                                        width: 16,
+                                        height: 16
+                                    }}
+                                    src="https://i.imgur.com/kFjaH5l.png" />
+                            </DOMView>
+                        </Entity>
+                    );
+                }}
+            </Emitter>
+        </ECS.Provider>
+    )
+}
+```
+
+<Example hideControls style={{height: "250px"}}>
+<DOMParticles />
+</Example>

@@ -1,0 +1,14 @@
+{
+    "extends": "@tsconfig/docusaurus/tsconfig.json",
+    "include": ["src/"],
+    "compilerOptions": {
+        "target": "ES5",
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
+        "paths": {
+            "@react-ecs/core": ["../../libs/core/src/index.ts"],
+            "@react-ecs/three": ["../../libs/three/src/index.ts"],
+            "@react-ecs/boids": ["../../libs/boids/src/index.ts"]
+        },
+        "types": ["node", "@docusaurus/module-type-aliases"]
+    }
+}

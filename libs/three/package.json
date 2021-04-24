@@ -1,0 +1,19 @@
+{
+    "name": "@react-ecs/three",
+    "version": "0.0.2",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dustinlacewell/react-ecs"
+    },
+    "peerDependencies": {
+        "@react-three/drei": "^4.1.8",
+        "@react-three/fiber": "^6.0.14",
+        "three": "^0.127.0"
+    },
+    "devDependencies": {
+        "@react-three/drei": "^4.1.8",
+        "@react-three/fiber": "^6.0.14",
+        "@types/three": "^0.127.1",
+        "three": "^0.127.0"
+    }
+}

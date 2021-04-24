@@ -1,0 +1,21 @@
+.warning {
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    color: var(--ifm-navbar-color);
+    border: 1px solid var(--ifm-color-primary);
+
+    a {
+        text-decoration: underline !important;
+    }
+
+    & > span {
+        font-weight: bold;
+        color: orangered;
+    }
+
+    & > * {
+        padding: 0;
+        margin: 0;
+    }
+}

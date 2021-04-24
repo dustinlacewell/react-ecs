@@ -1,0 +1,29 @@
+{
+    "name": "@react-ecs/core",
+    "version": "0.0.2",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dustinlacewell/react-ecs"
+    },
+    "keywords": [
+        "react-ecs",
+        "ecs",
+        "react",
+        "r3f",
+        "react-three",
+        "react-three-fiber",
+        "babylon",
+        "babylonjs"
+    ],
+    "peerDependencies": {
+        "mobx": "^6.2.0",
+        "mobx-react": "^7.1.0"
+    },
+    "devDependencies": {
+        "mobx": "^6.2.0",
+        "mobx-react": "^7.1.0"
+    },
+    "dependencies": {
+        "tick-knock": "^3.0.1"
+    }
+}

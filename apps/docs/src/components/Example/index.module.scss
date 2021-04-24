@@ -1,0 +1,27 @@
+.example {
+    border: 1px solid var(--ifm-color-primary);
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        padding: 0;
+        margin: 0;
+    }
+
+    & > div {
+        flex: 1;
+    }
+}
+
+.leva {
+    z-index: 9;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    width: 300px;
+
+    & > div > div:last-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "nrwl.angular-console",
+        "firsttris.vscode-jest-runner",
+        "dozerg.tsimportsorter",
+        "editorconfig.editorconfig",
+        "ryuta46.multi-command",
+        "streetsidesoftware.code-spell-checker",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+    ]
+}
