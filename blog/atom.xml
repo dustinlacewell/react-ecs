@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://react-ecs.ldlework.com/blog</id>
     <title>react-ecs Blog</title>
-    <updated>2021-04-22T00:00:00.000Z</updated>
+    <updated>2021-04-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://react-ecs.ldlework.com/blog"/>
     <subtitle>react-ecs Blog</subtitle>
     <icon>https://react-ecs.ldlework.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Hello, world.]]></title>
+        <id>hello-world</id>
+        <link href="https://react-ecs.ldlework.com/blog/hello-world"/>
+        <updated>2021-04-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I am happy to release the first public alpha of React ECS, version 0.0.3.]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Coming Soon]]></title>
         <id>coming-soon</id>

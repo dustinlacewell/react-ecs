@@ -4,9 +4,16 @@
         <title>react-ecs Blog</title>
         <link>https://react-ecs.ldlework.com/blog</link>
         <description>react-ecs Blog</description>
-        <lastBuildDate>Thu, 22 Apr 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 24 Apr 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Hello, world.]]></title>
+            <link>https://react-ecs.ldlework.com/blog/hello-world</link>
+            <guid>hello-world</guid>
+            <pubDate>Sat, 24 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[I am happy to release the first public alpha of React ECS, version 0.0.3.]]></description>
+        </item>
         <item>
             <title><![CDATA[Coming Soon]]></title>
             <link>https://react-ecs.ldlework.com/blog/coming-soon</link>
