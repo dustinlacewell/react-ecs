@@ -63,8 +63,8 @@ Instead:
 <table>
   <tr>
     <td>
-        Let's make a simple simulation that updates a cube based on a <code>Spinning</code> facet, using React ECS' <a href="https://threejs.org/">ThreeJS</a> integration <a href="https://react-ecs.ldlework.com/docs/three">@react-ecs/three</a>. &nbsp; <sub><a href="https://codesandbox.io/s/react-ecs-nextjs-test-hp9do">
-        <img src="https://img.shields.io/static/v1?label=&message=Live%20Demo" /></sub>
+        Let's make a simple simulation that updates a cube based on a <code>Spinning</code> facet, using React ECS' <a href="https://threejs.org/">ThreeJS</a> integration <a href="https://react-ecs.ldlework.com/docs/three">@react-ecs/three</a>. &nbsp; <sub><a href="https://codesandbox.io/s/react-ecs-demo-tv5xj?from-embed=&file=/src/index.tsx">
+        <img src="https://img.shields.io/static/v1?label=&message=Try%20it%20live" /></sub>
     </a>
     </td>
     <td>
@@ -80,9 +80,8 @@ Instead:
 This facet just tracks how much its entity should spin.
 
 ```tsx
-// define a facet that get attached to entities
-class Spinning extends Facet<Spinning> {
-    rotation = new Vector3(0, 0, 0);
+class Spin extends Facet<Spin> {
+    amount? = new Vector3(1, 1, 1);
 }
 ```
 
@@ -90,29 +89,20 @@ class Spinning extends Facet<Spinning> {
 
 Systems use queries to track the entities they work upon.
 
-This system uses a query to find entities with both the `ThreeView` and `Spinning` facets. `ThreeView` is facet provided by [@react-ecs/three](https://react-ecs.ldlework.com/docs/three) to visually display entities in a [ThreeJS](https://threejs.org/) scene.
+This system uses a query to find entities with both the `ThreeView` and `Spin` facets. `ThreeView` is facet provided by [@react-ecs/three](https://react-ecs.ldlework.com/docs/three) to visually display entities in a [ThreeJS](https://threejs.org/) scene.
 
-This system updates the entity's 3D rotation based on the `Spinning` facet:
+This system updates the entity's 3D rotation based on the `Spin` facet:
 
 ```tsx
-// define a system which processes entity facets
-const SpinningSystem = () => {
-    // a query makes it easy to find entities the right facets
-    const query = useQuery((e) => e.hasAll(ThreeView, Spinning));
+const SpinSystem = () => {
+    const query = useQuery((e) => e.hasAll(ThreeView, Spin));
 
-    // systems are basically just update callbacks with priorities
-    return useSystem((dt: number) => {
-        // iterate the entities with the ThreeView and Spinning facets
-        query.loop([ThreeView, Spinning], (e, [view, spin]) => {
-            // receive typed facets for each matching entity
-            const transform = view.object3d; // <ThreeView> Object3D
-            const rotation = spin.rotation // <Spinning> facet
-                .clone()
-                .multiplyScalar(dt);
-            // calculate new state
-            const newRotation = transform.rotation.toVector3().add(rotation);
-            // mutate facets, state is automatically handled
-            transform.rotation.setFromVector3(newRotation);
+    return useSystem((dt) => {
+        query.loop([ThreeView, Spin], (e, [view, spin]) => {
+            const rot = view.object3d.rotation;
+            rot.x += spin.amount.x * dt;
+            rot.y += spin.amount.y * dt;
+            rot.z += spin.amount.z * dt;
         });
     });
 };
@@ -124,31 +114,24 @@ Now we can create a component to tie it all together. For more information see o
 
 ```tsx
 export const SpinningCubeStory: FC = () => {
-    // declare the ECS instance
-    const ECS = useECS();
+const CoolSim = () => {
+  const ECS = useECS()
+  useAnimationFrame(ECS.update)
 
-    // drive the ECS with requestAnimationFrame hook
-    useAnimationFrame((_, dt) => ECS.update(dt));
-
-    return (
-          {/* use ECS as context provider */}
-          <ECS.Provider>
-              {/* add systems to the simulation */}
-              <SpinningSystem />
-
-              {/* entities are their own context provider */}
-              <Entity>
-
-                  {/* add facets to entities */}
-                  <Spinning rotation={new Vector3(1, 1, 1)} />
-
-                  {/* use integrations like react-three-fiber */}
-                  <ThreeView>
-                      <Box />
-                  </ThreeView>
-
-              </Entity>
-          </ECS.Provider>
-    );
-};
+  return (
+    <Canvas>
+      <ECS.Provider>
+        <SpinSystem />
+        <Entity>
+          <Spin />
+          <ThreeView>
+            <Box />
+          </ThreeView>
+        </Entity>
+      </ECS.Provider>
+    </Canvas>
+  )
+}
 ```
+
+[![Edit React ECS Demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-ecs-demo-tv5xj?fontsize=14&hidenavigation=1&theme=dark)

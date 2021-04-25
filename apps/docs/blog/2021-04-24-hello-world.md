@@ -8,34 +8,26 @@ author_image_url: https://avatars.githubusercontent.com/u/53952?v=4
 tags: [release]
 ---
 
-# Hello, you beautiful world, you
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 I am happy to release the first public alpha of React ECS, version `0.0.3`.
 
 React ECS allows you to use the ECS (or [entity component system](/docs/#whats-that)) pattern in a natural way with [React](https://reactjs.org/).
 
-```tsx
-const BoidSim = () => {
-    const ECS = useECS();
-    useAnimationFrame(ECS.update);
-    return (
-        <ECS.Provider>
-            <AlignmentSystem multiplier={1.2} />
-            <CohesionSystem />
-            <SeparationSystem />
-            <NeighborhoodSystem range={100} />
-
-            {() => _.times(10, key =>
-                <Entity key={key}>
-                    <Neighbor />
-                    <DOMView>
-                        <img src="/boid.png" />
-                    </DOMView>
-                </Entity>
-            )}
-        </ECS.Provider>
+<BrowserOnly fallback={<div />} >
+{() => <iframe
+src="https://codesandbox.io/embed/react-ecs-demo-tv5xj?fontsize=14&hidenavigation=1&theme=dark&verticallayout=1"
+style={{
+        width:"100%",
+        height:"500px",
+        border:0,
+        borderRadius: "4px",
+        overflow:"hidden"}}
+title="React ECS Demo"
+allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
 }
-```
+</BrowserOnly>
 
 ## Conception
 
@@ -82,7 +74,7 @@ React ECS may move onto its own ECS implementation one day (or fork tick-knock),
 
 ## Technical Articles
 
-There are some pretty challening puzzles that needed solving in order to get the React ECS API we have today.
+There are some pretty challenging puzzles that needed solving in order to get the React ECS API we have today.
 
 I will be publishing some articles on some of the more interesting ones in the future.
 
@@ -91,6 +83,7 @@ I will be publishing some articles on some of the more interesting ones in the f
 We actually have multiple packages:
 
 <table>
+<tbody>
 <tr>
 <td>
 
@@ -127,9 +120,10 @@ Ready to go bits for a [boids simulation](https://en.wikipedia.org/wiki/Boids)
 
 </td>
 </tr>
+</tbody>
 </table>
 
-The plan is to continue grow this ecosystem with additional libraries. We've already had some experimental success with [BabylonJS](https://www.babylonjs.com/) and [CannonJS](https://github.com/pmndrs/cannon-es) integrations.
+The plan is to continue to grow this ecosystem with additional libraries. We've already had some experimental success with [BabylonJS](https://www.babylonjs.com/) and [CannonJS](https://github.com/pmndrs/cannon-es) integrations.
 
 ## Documentation
 
@@ -177,7 +171,7 @@ Here's an "understatement":
 
 It makes me swirl thinking back at the many abysses I've traversed getting here. Dazed. Confused. In a hopeless abandon of confounding bewilderment. The constraints of [Fast Refresh](https://reactnative.dev/docs/fast-refresh) subverting my every expectation. The complexity of JS monorepo tooling slowly consuming me.. The limitations of NPM's republishing rules staying my struggling hands...
 
-Despite it all, perservation prevails!
+Despite it all, perseverance prevails!
 
 All for you dear reader. So that we could join hands, and merrily go forth making sick web visualizations and stuff. :P
 
