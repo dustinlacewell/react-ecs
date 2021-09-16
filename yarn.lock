@@ -3261,6 +3261,14 @@
     "@react-spring/shared" "~9.1.1"
     "@react-spring/types" "~9.1.1"
 
+"@react-three/cannon@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@react-three/cannon/-/cannon-3.1.2.tgz#8d0cfc364abe24f04548377bbfca401fe79a6b5d"
+  integrity sha512-yZuZv4B90klJeW3GT1Gyqom62s7kcDtwODQjf0cWfThDytzSZQgkd3AY7pSg9l19K/YE0NaPwYSzrGadT4ya8A==
+  dependencies:
+    cannon-es "^0.18.0"
+    cannon-es-debugger "^0.1.4"
+
 "@react-three/drei@^4.1.8":
   version "4.1.8"
   resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-4.1.8.tgz#66b05dc656f1c2077e7443918cfc3ac41e27931b"
@@ -6182,6 +6190,16 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001030, caniuse-lite@^1.0.30001032, can
   version "1.0.30001214"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001214.tgz#70f153c78223515c6d37a9fde6cd69250da9d872"
   integrity sha512-O2/SCpuaU3eASWVaesQirZv1MSjUNOvmugaD8zNSJqw6Vv5SGwoOpA9LJs3pNPfM745nxqPvfZY3MQKY4AKHYg==
+
+cannon-es-debugger@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/cannon-es-debugger/-/cannon-es-debugger-0.1.4.tgz#22c79ae14c52de44465690988ff647c51c79c62b"
+  integrity sha512-RefSPWX6gDMQsx3UWoQpkGW3R03Wwn8p1JteexQUYxDC5DnOS3U3iKhns2vVpFp6Q3AKiSSmRf7NIXnGN8L0RA==
+
+cannon-es@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/cannon-es/-/cannon-es-0.18.0.tgz#ae831ff9df2352d5faabb269c11ea0f10bc35c7e"
+  integrity sha512-GiQ1bd0etZsMVSnUhNc+p+FEh0R/cULpp8uRSAhEK4Kax+y/31Au03m6h1h1xdDivAMnFg8YDwevHgzLynOHlw==
 
 capture-exit@^2.0.0:
   version "2.0.0"
