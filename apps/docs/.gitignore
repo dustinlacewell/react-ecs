@@ -1,2 +1,3 @@
 *-sidebar.js
 api/*
+!api/.gitkeep
