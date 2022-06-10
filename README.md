@@ -113,7 +113,6 @@ const SpinSystem = () => {
 Now we can create a component to tie it all together. For more information see our [documentation](https://react-ecs.ldlework.com/docs/) and [examples](https://react-ecs.ldlework.com/examples/).
 
 ```tsx
-export const SpinningCubeStory: FC = () => {
 const CoolSim = () => {
   const ECS = useECS()
   useAnimationFrame(ECS.update)
