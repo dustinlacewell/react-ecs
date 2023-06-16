@@ -1,0 +1,66 @@
+{
+    "name": "three",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/three/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "ignorePath": "libs/three/.eslintignore",
+                "eslintConfig": "libs/three/.eslintrc.json",
+                "lintFilePatterns": ["libs/three/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "fix": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "fix": true,
+                "ignorePath": "libs/three/.eslintignore",
+                "eslintConfig": "libs/three/.eslintrc.json",
+                "lintFilePatterns": ["libs/three/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "build": {
+            "executor": "@nrwl/web:package",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/three",
+                "tsConfig": "libs/three/tsconfig.lib.json",
+                "project": "libs/three/package.json",
+                "entryFile": "libs/three/src/index.ts",
+                "external": [
+                    "react",
+                    "react-dom",
+                    "react/jsx-runtime",
+                    "react/jsx-dev-runtime"
+                ],
+                "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+                "assets": [
+                    {
+                        "glob": "README.md",
+                        "input": ".",
+                        "output": "."
+                    }
+                ]
+            }
+        },
+        "publish": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "commands": [
+                    "npm whoami",
+                    "npm publish dist/libs/three --access public"
+                ]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/three"],
+            "options": {
+                "jestConfig": "libs/three/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    }
+}

@@ -10,23 +10,28 @@ import { Leva } from 'leva';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { Suspense } from 'react';
 
-import { BoidExample } from '../src/scenes/BoidExample'
-import { DOMParticles } from '../src/scenes/DOMParticles'
+import { BoidExample } from '../src/scenes/BoidExample';
+import { DOMParticles } from '../src/scenes/DOMParticles';
 import { Example } from '../src/components/Example';
 
 `react-ecs` is a declarative "Entity Component System" for React.
 
 <Leva hidden />
 
-<Example hideControls style={{backgroundColor: 'black', height: '250px' }}>
-<BoidExample />
+<Example hideControls style={{ backgroundColor: 'black', height: '250px' }}>
+    <BoidExample />
 </Example>
 
-<div style={{float: "right"}}>These boids are driven by react-ecs! Try dragging and zooming!</div>
+<div style={{ float: 'right' }}>
+    These boids are driven by react-ecs! Try dragging and zooming!
+</div>
 
 ## What's that?
 
-<img style={{float: "right", maxWidth: "400px", marginLeft: "10px"}} src="https://i.imgur.com/nTfGWyF.png" />
+<img
+    style={{ float: 'right', maxWidth: '400px', marginLeft: '10px' }}
+    src="https://i.imgur.com/nTfGWyF.png"
+/>
 
 An **ECS**, or _Entity Component System_ is a design pattern popular in game development. It eschews rich objects for simple **Entities** that compose data-only Components, or **Facets** as `react-ecs` calls them (to avoid confusion with React Components).
 
@@ -197,6 +202,6 @@ export const DOMParticles = () => {
 }
 ```
 
-<Example hideControls style={{height: "250px"}}>
-<DOMParticles />
+<Example hideControls style={{ height: '250px' }}>
+    <DOMParticles />
 </Example>

@@ -114,11 +114,17 @@ export const DOMParticles = () => {
         Math.random() * s - s * 0.5;
     const randomVector = (s: number) =>
         new Vector2(rnd(s), rnd(s));
-    const rndPos = () =>
-        randomVector(offset).add(new Vector2(
-            containerRef.current.offsetWidth / 2,
-            containerRef.current.offsetHeight / 2,
-        ))
+    const rndPos = () => {
+        const container = containerRef.current;
+
+        const containerPos =
+            container ? new Vector2(
+                container.offsetWidth / 2,
+                container.offsetHeight / 2,
+            ) : new Vector2(0, 0);
+
+        randomVector(offset).add(containerPos);
+    };
 
     return (
         <div ref={containerRef}>

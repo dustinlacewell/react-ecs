@@ -1,21 +1,16 @@
 {
-  "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
-    ".eslintrc.json": "*"
-  },
-  "affected": { "defaultBase": "master" },
-  "npmScope": "react-ecs",
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+    "implicitDependencies": {
+        "package.json": { "dependencies": "*", "devDependencies": "*" },
+        ".eslintrc.json": "*"
+    },
+    "affected": { "defaultBase": "master" },
+    "npmScope": "react-ecs",
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "nx/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e"]
+            }
+        }
     }
-  },
-  "projects": {
-    "core": { "tags": [] },
-    "three": { "tags": [] },
-    "boids": { "tags": [] },
-    "workspace": { "tags": [] },
-    "docs": { "tags": [] }
-  }
 }

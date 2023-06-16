@@ -10,15 +10,16 @@ import { ECSContext } from "./ECS";
 
 export type EntityProps = {
     entity?: _Entity;
+    children: ReactNode;
 };
 
-export class Entity extends Component {
+export class Entity extends Component<EntityProps> {
     static contextType = ECSContext;
     context!: ContextType<typeof ECSContext>;
 
     public entity: _Entity;
 
-    constructor(props: { children: ReactNode }) {
+    constructor(props: EntityProps) {
         super(props);
         this.entity = new _Entity();
     }
