@@ -1,0 +1,44 @@
+{
+    "name": "docs",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/docs/src",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "ignorePath": "apps/docs/.eslintignore",
+                "eslintConfig": "apps/docs/.eslintrc.json",
+                "lintFilePatterns": ["apps/docs/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "fix": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "fix": true,
+                "ignorePath": "apps/docs/.eslintignore",
+                "eslintConfig": "apps/docs/.eslintrc.json",
+                "lintFilePatterns": ["apps/docs/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "build": {
+            "executor": "@nx-plus/docusaurus:browser",
+            "options": {
+                "path": "apps/docs",
+                "outputPath": "dist/apps/docs"
+            }
+        },
+        "serve": {
+            "executor": "@nx-plus/docusaurus:dev-server",
+            "options": {
+                "port": 3000
+            }
+        },
+        "publish": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "commands": ["bin/publish-site.sh"]
+            }
+        }
+    }
+}

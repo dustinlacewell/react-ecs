@@ -47,7 +47,7 @@ module.exports = {
                     href: 'https://discord.gg/RJqjqAnmJ8',
                     label: 'Discord',
                     position: 'right',
-                }
+                },
             ],
         },
         footer: {
@@ -175,7 +175,7 @@ module.exports = {
                 allReflectionsHaveOwnDocument: true,
                 readme: 'none',
                 sidebar: {
-                    sidebarFile: './core-sidebar.js',
+                    categoryLabel: '@react-ecs/core',
                 },
                 watch: true,
             },
@@ -193,7 +193,7 @@ module.exports = {
                 allReflectionsHaveOwnDocument: true,
                 readme: 'none',
                 sidebar: {
-                    sidebarFile: './three-sidebar.js',
+                    categoryLabel: '@react-ecs/three',
                 },
                 watch: true,
             },

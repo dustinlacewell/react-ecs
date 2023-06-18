@@ -1,0 +1,66 @@
+{
+    "name": "boids",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/boids/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "ignorePath": "libs/boids/.eslintignore",
+                "eslintConfig": "libs/boids/.eslintrc.json",
+                "lintFilePatterns": ["libs/boids/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "fix": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "fix": true,
+                "ignorePath": "libs/boids/.eslintignore",
+                "eslintConfig": "libs/boids/.eslintrc.json",
+                "lintFilePatterns": ["libs/boids/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "build": {
+            "executor": "@nrwl/web:package",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/boids",
+                "tsConfig": "libs/boids/tsconfig.lib.json",
+                "project": "libs/boids/package.json",
+                "entryFile": "libs/boids/src/index.ts",
+                "external": [
+                    "react",
+                    "react-dom",
+                    "react/jsx-runtime",
+                    "react/jsx-dev-runtime"
+                ],
+                "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+                "assets": [
+                    {
+                        "glob": "README.md",
+                        "input": ".",
+                        "output": "."
+                    }
+                ]
+            }
+        },
+        "publish": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "commands": [
+                    "npm whoami",
+                    "npm publish dist/libs/boids --access public"
+                ]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/boids"],
+            "options": {
+                "jestConfig": "libs/boids/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    }
+}
