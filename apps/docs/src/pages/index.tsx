@@ -2,10 +2,7 @@ import './index.scss';
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import {
-    useAnimationFrame,
-    useECS
-} from '@react-ecs/core';
+import { useAnimationFrame, useECS } from '@react-ecs/core';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React from 'react';
@@ -73,14 +70,14 @@ function Home() {
 
     useAnimationFrame((dt) => {
         ECS.update(dt);
-    })
+    });
 
     const flip = (a) => a[Math.floor(Math.random() * a.length)];
     const example = flip([
         // <ParticleSystem cameraProps={{enableZoom: false}} />,
-        <BoidExample cameraProps={{enableZoom: false}} />,
+        <BoidExample cameraProps={{ enableZoom: false }} />,
         // <DOMParticles />
-    ])
+    ]);
 
     const context = useDocusaurusContext();
     const { siteConfig = {} } = context;
@@ -90,8 +87,16 @@ function Home() {
             title={`${siteConfig.title}`}
             description="Entity Component System for React!"
         >
-            <Example collapsed={true} style={{flex: 1, marginBottom: 0, border: "none"}}>
-                    {example}
+            <Example
+                collapsed={true}
+                style={{
+                    flex: 1,
+                    marginBottom: 0,
+                    border: 'none',
+                    height: '100%',
+                }}
+            >
+                <div style={{ height: '100vh' }}>{example}</div>
             </Example>
         </Layout>
     );
